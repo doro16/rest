@@ -1,0 +1,9 @@
+db.sqlite3
+.idea/
+todo_drf/settings.py
+
+# temporary files
+*.log
+*.pot
+*.pyc
+__pycache__/
