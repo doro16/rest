@@ -13,8 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import sys
-sys.path.append('C:\rest')
+
 from allauth.account.views import confirm_email
 from django.contrib import admin
 from django.conf.urls import url
@@ -25,14 +24,12 @@ from rest_auth.registration.views import VerifyEmailView, RegisterView
 from rest_auth.views import (
     LoginView, LogoutView, PasswordChangeView, PasswordResetView, PasswordResetConfirmView
 )
-
-from todo_drf.users.views import ConfirmEmailView
+from users.views import ConfirmEmailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('seoul/', include('seoul.urls')),
     path('tb/', include('tb.urls')),
-    path('users/', include('users.urls')),
     url(r'^rest-auth/', include('rest_auth.urls')),
     url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
     url(r'^account/', include('allauth.urls')),
@@ -51,7 +48,7 @@ urlpatterns = [
     # 유효한 이메일이 유저에게 전달
     re_path(r'^account-confirm-email/$', VerifyEmailView.as_view(), name='account_email_verification_sent'),
     # 유저가 클릭한 이메일(=링크) 확인
-    url(r'^rest-auth/registration/account-confirm-email/(?P<key>[-:\w]+)/$', ConfirmEmailView.as_view(), name='account_confirm_email'),
+    # url(r'^rest-auth/registration/account-confirm-email/(?P<key>[-:\w]+)/$', ConfirmEmailView.as_view(), name='account_confirm_email'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

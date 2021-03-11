@@ -4,7 +4,7 @@ setup(
     name             = 'doro16rest',
     version          = '1.0.0',
     description      = 'practice',
-    long_description = open('README.md').read(),
+    # long_description = open('README.md').read(),
     author           = 'doro16',
     author_email     = 'doro16@dtaas.co.kr',
     url              = 'https://github.com/doro16/rest',
